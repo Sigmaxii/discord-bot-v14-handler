@@ -1,7 +1,7 @@
 const { Client, Collection, GatewayIntentBits, Partials } = require("discord.js");
 const config = require('../config.js');
 const Database = require('../utils/Database.js');
-const { Slash, Events }  = require('../handlers/handle.js');
+const { Slash, Events, Button, Modal }  = require('../handlers/handle.js');
 
 
 module.exports = {
@@ -52,12 +52,16 @@ module.exports = {
                 super.login(this.config.token).then(() => {
                     Slash(this, this.id);
                     Events(this);
+                    Button(this);
+                    Modal(this);
                     this.db.connect();
                 })
             } else {
                 super.login(this.config.betatoken).then(() => {
                     Slash(this)
                     Events(this)
+                    Button(this);
+                    Modal(this);
                     this.db.connect();
                 })
             }
