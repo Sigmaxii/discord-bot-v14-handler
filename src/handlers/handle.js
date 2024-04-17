@@ -1,5 +1,6 @@
 const fs = require("fs");
 var AsciiTable = require("ascii-table");
+const { ChalkAdvanced } = require('chalk-advanced');
 module.exports = {
   Slash: async function (client) {
     /**
